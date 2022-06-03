@@ -8,9 +8,9 @@ Here is the [link](https://kteruuchi.github.io/Ray_Tracing/).
 ## Command
 | Command | About |
 |:--------|-------|
-|`clear`| clear all log |
-|`hide log`| change visibility 'hidden' |
-|`show log`| change visibility 'visible' |
-|`scale` number | rerender. recommended number is .1 to 1 |
-|`wireframe` or `wf`| switch view mode |
-|`save` name? | save as 'name'.png or download.png |
+| clear | clear all log |
+| hide log | change visibility to 'hidden' |
+| show log | change visibility to 'visible' |
+| scale  `number` | roughness. recommended number is .1 to 1 |
+| wireframe ___or___ wf| switch view mode |
+| save `name?` | save as 'name'.png or download.png |
