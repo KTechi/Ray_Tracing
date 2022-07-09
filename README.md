@@ -1,6 +1,6 @@
 # Ray_Tracing
 
-Here is the [link](https://kteruuchi.github.io/Ray_Tracing/).
+Here is the [link](https://ktechi.github.io/Ray_Tracing/).
 
 ## Sample (scale 1)
 <img src="image/1.png" style="width:20rem;"/> <img src="image/2.png" style="width:20rem;"/>
