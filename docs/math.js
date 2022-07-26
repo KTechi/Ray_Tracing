@@ -55,14 +55,11 @@ function world2V(offset, a, u, b, v) {
 // Solve Cubic Equation
 // https://science-log.com/数学/3次方程式の解析解（厳密解）を求めてみる
 // x^3 + ax^2 + bx + c = 0
-function sce(a, b, c, pr) {
+function sce(a, b, c) {
     const p = -(a**2)/3 + b
     const q = 2*a**3/27 - a*b/3 + c
     const r = q**2/4 + p**3/27
     let A, B
-    // if (pr) {
-    //     console.log(p, q, r)
-    // }
     if (r < 0) {
         const r_ = new ComplexNumber(r).pow(1/2)
         const q_ = new ComplexNumber(-q/2)
@@ -81,10 +78,6 @@ function sce(a, b, c, pr) {
     const B2 = B.x(w).x(w)
     const A3 = A.x(w).x(w)
     const B3 = B.x(w)
-    if (pr) {
-        console.log('======================')
-        console.log(A, B)
-    }
     return [C.t(A ).t(B ),
             C.t(A2).t(B2),
             C.t(A3).t(B3)]
@@ -93,11 +86,11 @@ function sce(a, b, c, pr) {
 // Solve Quartic Equation
 // https://science-log.com/数学/4次方程式の解の公式（ferrariの解法）
 // x^4 + ax^3 + bx^2 + cx + d = 0
-function sqe(a, b, c, d, pr) {
+function sqe(a, b, c, d) {
     const p = -3*a**2/8 + b
     const q = a**3/8 - a*b/2 + c
     const r = -3*a**4/256 + a**2*b/16 - a*c/4 + d
-    const lambda = sce(-p/2, -r, p*r/2 - q**2/8, pr)[0]
+    const lambda = sce(-p/2, -r, p*r/2 - q**2/8)[0]
     const neg_1 = new ComplexNumber(-1)
     const two   = new ComplexNumber(2)
     const four  = new ComplexNumber(4)
@@ -110,11 +103,6 @@ function sqe(a, b, c, d, pr) {
         n = lambda.pow(2).t(neg_r).pow(1/2)
     const neg_m = m.x(neg_1)
     const neg_n = n.x(neg_1)
-    if (pr) {
-        console.log('%cp, q, r', 'color: red')
-        console.log(-p/2, -r, p*r/2 - q**2/8)
-        console.log(lambda)
-    }
 
     let tmp1 = lambda.t(    n).x(four).x(neg_1).t(m.pow(2)).pow(1/2)
     let tmp2 = lambda.t(neg_n).x(four).x(neg_1).t(m.pow(2)).pow(1/2)
