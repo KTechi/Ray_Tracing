@@ -469,7 +469,7 @@ class Torus {
         this.m = material
     }
 
-    getColisionPoint(from, direction) {
+    getColisionPoint(from, direction, pr) {
         const cam    = qRotation(world(from , -1, this.origin), this.q.conjugate()).toVector()
         const ray    = qRotation(direction                    , this.q.conjugate()).toVector()
         const light_ = qRotation(world(light, -1, this.origin), this.q.conjugate()).toVector()
@@ -483,12 +483,22 @@ class Torus {
             2*c2,
             2*c3 + c2**2 - c4,
             2*c2*c3 - c5,
-            c3**2 - c6)
+            c3**2 - c6, pr)
+        if (pr) {
+            console.log('===========================')
+            console.log(answer)
+            console.log(cam, ray)
+            console.log(
+                2*c2,
+                2*c3 + c2**2 - c4,
+                2*c2*c3 - c5,
+                c3**2 - c6)
+        }
     
         let t = undefined
         for (const tmp of answer)
             if (Math.abs(tmp.I()) < 0.000000000001 && 0 < tmp.R() && (t === undefined || tmp.R() < t))
-            t = tmp.R()
+                t = tmp.R()
         if (t === undefined) return { visible: false }
     
         const v = world(cam, t, ray)

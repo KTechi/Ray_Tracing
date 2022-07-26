@@ -26,8 +26,10 @@ let roll  = 0
 let yaw   = 0
 let wireframe = false
 
-const camera = new Vertex(0, -700, 200)
-const screen = new Vector(0, 7, -2)
+const camera = new Vertex(0, -700, 0)
+const screen = new Vector(0, 7, 0)
+// const camera = new Vertex(0, -700, 200)
+// const screen = new Vector(0, 7, -2)
 screen.normalize()
 const light = new Vertex(0, 0, 1000000)
 

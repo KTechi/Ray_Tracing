@@ -6,15 +6,15 @@
 // ================================================== [50]
 //     Animation
 
-let animation = setInterval(repeat, 100)
-setTimeout(stop, 1 * 1000)
-function repeat() {
-    console.log('Animation')
-}
-function stop() {
-    clearInterval(animation)
-    console.log('Animation STOP')
-}
+// let animation = setInterval(repeat, 100)
+// setTimeout(stop, 1 * 1000)
+// function repeat() {
+//     console.log('Animation')
+// }
+// function stop() {
+//     clearInterval(animation)
+//     console.log('Animation STOP')
+// }
 
 // ================================================== [50]
 //     Scroll Listener

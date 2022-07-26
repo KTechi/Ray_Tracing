@@ -33,12 +33,16 @@ function paint() {
         let r = 0
         let g = 0
         let b = 0
-        for (let dy = -.3; dy < .4; dy += .3)
-        for (let dx = -.3; dx < .4; dx += .3) {
-            const pixel = world2V(north_west, x+dx, screenX, y+dy, screenY)
+        // for (let dy = -.3; dy < .4; dy += .3)
+        // for (let dx = -.3; dx < .4; dx += .3) {
+            // const pixel = world2V(north_west, x+dx, screenX, y+dy, screenY)
+            const pixel = world2V(north_west, x, screenX, y, screenY)
             const ray = genVector(camera, pixel)
     
-            let colPoint = torus.getColisionPoint(camera, ray)
+            let colPoint = torus.getColisionPoint(camera, ray,
+                y == parseInt(14) &&
+                x == parseInt(10)
+            )
             // let colPoint = { visible: false } //torus.getColisionPoint(camera, ray)
             let tmp = pic.getColisionPoint(camera, ray)
             if (colPoint.visible === false || tmp.t < colPoint.t) colPoint = tmp
@@ -55,7 +59,7 @@ function paint() {
                 g += 30
                 b += 30
             }
-        }
+        // }
         data[base + 0] = parseInt(r/9)
         data[base + 1] = parseInt(g/9)
         data[base + 2] = parseInt(b/9)
