@@ -5,7 +5,7 @@
 
 const canvas = document.createElement('canvas')
 const canvas2= document.createElement('canvas')
-const context = canvas.getContext('2d')
+const context = canvas.getContext('2d', {willReadFrequently: true})
 const context2= canvas2.getContext('2d')
 const aln = 200 // Axis Length
 const axisX = new Edge(new Vertex(-aln, 0, 0), new Vertex(aln, 0, 0))
@@ -19,7 +19,7 @@ let VW = window.innerWidth
 let VH = window.innerHeight
 let VW2 = window.innerWidth
 let VH2 = window.innerHeight
-let imageData = context.getImageData(0, 0, VW, VH)
+let imageData = context.getImageData(0, 0, VW, VH, {willReadFrequently: true})
 let data = imageData.data
 let pitch = 0
 let roll  = 0
